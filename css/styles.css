@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, Tahoma, sans-serif;
+}
+.container {
+    padding: 0 15px;
+    margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+    .container {
+        width: 790px;
+    }
+}
+@media screen and (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+.user-info {
+    margin: 15px 0;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #222;
+}
+.user-info h4 {
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #222;
+}
+.game-blocks {
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.game-blocks.no-click {
+    pointer-events: none;
+}
+.game-block {
+    position: relative;
+    flex-basis: calc((100% - (15px * 4)) / 5);
+    height: 200px;
+    cursor: pointer;
+    transition: transform .5s;
+    transform-style: preserve-3d;
+}
+.game-block.flipped,
+.game-block.has-match {
+    transform: rotateY(180deg);
+    pointer-events: none;
+}
+@media screen and (max-width: 991px) {
+    .game-block {
+        flex-basis: calc((100% - (15px * 3)) / 4);
+    }
+}
+@media screen and (max-width: 767px) {
+    .game-block {
+        flex-basis: calc((100% - (15px * 2)) / 3);
+    }
+}
+@media screen and (max-width: 575px) {
+    .game-block {
+        flex-basis: 100%;
+    }
+}
+.game-block .face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    backface-visibility: hidden;
+    border: 5px solid #158AF4;
+}
+.game-block .front {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    font-size: 150px;
+    color: white;
+}
+.game-block .back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #607D8B;
+    transform: rotateY(180deg);
+}
+.game-block .back img {
+    max-width: 140px;
+    height: 140px;
+}
+.popup {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(21 138 244 / 90%);
+    color: white;
+    font-weight: normal;
+}
+.popup span {
+    display: block;
+    margin-top: 15px;
+    padding: 15px 30px;
+    background-color: #F44336;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    color: white;
+    cursor: pointer;
+}
+
